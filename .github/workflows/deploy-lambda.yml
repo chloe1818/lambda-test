@@ -49,6 +49,6 @@ jobs:
         with:
           function-name: test-lambda
           code-artifacts-dir: ./dist
-          aws-region: us-west-2
+          region: us-west-2
           memory-size: 256
           publish: true
