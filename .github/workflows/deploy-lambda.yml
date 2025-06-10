@@ -1,4 +1,5 @@
 name: Deploy AWS Lambda Function
+# Trigger workflow on push to main or pull request
 
 on:
   push:
