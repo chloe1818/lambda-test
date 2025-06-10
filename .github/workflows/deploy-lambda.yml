@@ -34,7 +34,7 @@ jobs:
           aws-region: us-west-2
     
       - name: Deploy Lambda
-        uses: ./.github/actions/lambda-github-action
+        uses: chloe1818/lambda-github-action@v1
         with:
           function-name: test-lambda
           code-artifacts-dir: ./dist 
