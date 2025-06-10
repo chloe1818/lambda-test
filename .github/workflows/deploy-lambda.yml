@@ -37,6 +37,6 @@ jobs:
         uses: ./.github/actions/lambda-github-action
         with:
           function-name: test-lambda
-          zip-file-path: ./lambda-function.zip
+          code-artifacts-dir: ./dist 
           memory-size: 256
           publish: true
