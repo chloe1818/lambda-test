@@ -51,4 +51,5 @@ jobs:
           code-artifacts-dir: ./dist
           region: us-west-2
           memory-size: 256
+          dry-run: false
           publish: true
