@@ -53,3 +53,4 @@ jobs:
           memory-size: 256
           dry-run: false
           publish: true
+          role: arn:aws:iam::660753258521:role/lambda-test-execution-role
