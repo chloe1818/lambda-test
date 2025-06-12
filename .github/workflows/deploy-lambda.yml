@@ -52,10 +52,10 @@ jobs:
       - name: Deploy Lambda
         uses: ./.github/actions/lambda-github-action
         with:
-          function-name: new-lambda
+          function-name: test-lambda
           code-artifacts-dir: ./dist
           region: us-west-2
-          memory-size: 256
+          memory-size: 512
           dry-run: false
           publish: true
           role: arn:aws:iam::660753258521:role/lambda-test-execution-role
