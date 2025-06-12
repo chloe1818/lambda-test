@@ -26,7 +26,23 @@ jobs:
           ref: main
           token: ${{ secrets.PAT_TOKEN }}
           path: .github/actions/lambda-github-action
-
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies and build Lambda function
+        run: |
+          npm ci
+          npm run build
+          
+      - name: Install and build GitHub Action
+        working-directory: .github/actions/lambda-github-action
+        run: |
+          npm ci
+          npm run build
+      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
