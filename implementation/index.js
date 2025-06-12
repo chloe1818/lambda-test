@@ -55,15 +55,20 @@ async function run() {
 
       // Create function
       try {
+        // Read zip file - keep original Buffer format but add debugging
         const zipFileContent = await fs.readFile(finalZipPath);
-
+        
+        core.info(`Zip file read successfully, size: ${zipFileContent.length} bytes`);
+        core.info(`Type: ${typeof zipFileContent}, isBuffer: ${Buffer.isBuffer(zipFileContent)}, isUint8Array: ${zipFileContent instanceof Uint8Array}`);
+        
+        core.info('Creating Lambda function with deployment package');
         let input = {
           FunctionName: functionName,
           Runtime: runtime,
           Role: role,
           Handler: handler,
           Code: {
-            ZipFile: Buffer.from(zipFileContent)
+            ZipFile: zipFileContent
           },
           Description: functionDescription,
           MemorySize: parsedMemorySize,
@@ -200,8 +205,10 @@ async function run() {
     
     try {
       let zipFileContent;
+      let zipBuffer;
       try {
         zipFileContent = await fs.readFile(finalZipPath);
+        core.info(`Zip file read successfully, size: ${zipFileContent.length} bytes`);
       } catch (error) {
         core.setFailed(`Failed to read Lambda deployment package at ${finalZipPath}: ${error.message}`);
 
