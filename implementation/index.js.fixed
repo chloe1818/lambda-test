@@ -55,15 +55,16 @@ async function run() {
 
       // Create function
       try {
+        // FIX: Ensure the ZipFile is properly wrapped as a Buffer
         const zipFileContent = await fs.readFile(finalZipPath);
-
+        
         let input = {
           FunctionName: functionName,
           Runtime: runtime,
           Role: role,
           Handler: handler,
           Code: {
-            ZipFile: Buffer.from(zipFileContent)
+            ZipFile: Buffer.from(zipFileContent) // Fixed: Explicitly wrap in Buffer.from()
           },
           Description: functionDescription,
           MemorySize: parsedMemorySize,
@@ -220,7 +221,7 @@ async function run() {
       
       let codeInput = {
         FunctionName: functionName,
-        ZipFile: zipFileContent, 
+        ZipFile: Buffer.from(zipFileContent), // Fixed: Explicitly wrap in Buffer.from()
         Architectures: architectures ? (Array.isArray(architectures) ? architectures : [architectures]) : undefined,
         Publish: publish,
         RevisionId: revisionId,
