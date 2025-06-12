@@ -32,6 +32,11 @@ jobs:
         with:
           node-version: '18'
           
+      - name: Install dependencies and build Lambda function
+        run: |
+          npm ci
+          npm run build
+          
       - name: Install and build GitHub Action
         working-directory: .github/actions/lambda-github-action
         run: |
