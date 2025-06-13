@@ -51,24 +51,24 @@ jobs:
           code-artifacts-dir: ./dist
           role: arn:aws:iam::660753258521:role/lambda-test-execution-role
           architectures: arm64
-          code-signing-config-arn: ''
-          dead-letter-config: ''
-          function-description: This is to test the lambda function.
+          code-signing-config-arn: ""
+          dead-letter-config: '{"TargetArn": "arn:aws:sns:us-west-2:660753258521:lambda-errors"}'
+          function-description: "This is to test the lambda function."
           environment: '{"Variables":{"NODE_ENV":"production"}}'
           ephemeral-storage: 1024
-          file-system-configs: ''
-          handler: index.handler
-          image-config: ''
-          kms-key-arn: ''
-          source-kms-key-arn: ''
-          revision-id: ''
-          layers: ''
-          logging-config: '{"LogFormat": "JSON", "ApplicationLogLevel": "INFO", "SystemLogLevel": "INFO"}'
-          snap-start: '{"ApplyOn": "PublishedVersions"}'
+          file-system-configs: "[]"
+          handler: "index.handler"
+          image-config: ""
+          kms-key-arn: ""
+          source-kms-key-arn: ""
+          revision-id: ""
+          layers: "[]"
+          logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
+          snap-start: '{"ApplyOn":"PublishedVersions"}'
           tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
           timeout: 5
-          tracing-config: '{"Mode": "Active"}'
-          vpc-config: ''
+          tracing-config: '{"Mode":"Active"}'
+          vpc-config: '{"SubnetIds": ["subnet-12345678", "subnet-87654321"], "SecurityGroupIds": ["sg-12345678"]}'
           region: us-west-2
           memory-size: 512
           dry-run: false
