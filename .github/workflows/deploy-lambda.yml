@@ -38,7 +38,6 @@ jobs:
           npm ci
           npm run build
 
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -48,12 +47,28 @@ jobs:
       - name: Deploy Lambda
         uses: ./.github/actions/lambda-github-action
         with:
-          function-name: newest-lambda
+          function-name: test-lambda
           code-artifacts-dir: ./dist
+          role: arn:aws:iam::660753258521:role/lambda-test-execution-role
+          architectures: arm64
+          code-signing-config-arn: ''
+          dead-letter-config: ''
+          description: This is to test the lambda function.
+          environment: '{"Variables":{"NODE_ENV":"production"}}'
+          ephemeral-storage: 1024
+          file-system-config: ''
+          handler: index.handler
+          image-config: ''
+          kms-key-arn: ''
+          layers: []
+          logging-config: '{"LogFormat": "JSON", "ApplicationLogLevel": "INFO", "SystemLogLevel": "INFO"}'
+          snap-start: '{"ApplyOn": "PublishedVersions"}'
+          tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
+          timeout: 5
+          tracing-config: '{"Mode": "Active"}'
+          vpc-config: ''
           region: us-west-2
           memory-size: 512
           dry-run: false
           publish: true
-          role: arn:aws:iam::660753258521:role/lambda-test-execution-role
-          handler: index.handler
           runtime: nodejs22.x
