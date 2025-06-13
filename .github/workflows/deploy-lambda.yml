@@ -59,16 +59,16 @@ jobs:
           file-system-configs: "[]"
           handler: "index.handler"
           image-config: ""
-          kms-key-arn: ""
-          source-kms-key-arn: ""
-          revision-id: ""
-          layers: "[]"
-          logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
-          snap-start: '{"ApplyOn":"PublishedVersions"}'
-          tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
-          timeout: 5
-          tracing-config: '{"Mode":"Active"}'
-          vpc-config: '{"SubnetIds": ["subnet-12345678", "subnet-87654321"], "SecurityGroupIds": ["sg-12345678"]}'
+          # kms-key-arn: ""
+          # source-kms-key-arn: ""
+          # revision-id: ""
+          # layers: "[]"
+          # logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
+          # snap-start: '{"ApplyOn":"PublishedVersions"}'
+          # tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
+          # timeout: 5
+          # tracing-config: '{"Mode":"Active"}'
+          # vpc-config: '{"SubnetIds": ["subnet-12345678", "subnet-87654321"], "SecurityGroupIds": ["sg-12345678"]}'
           region: us-west-2
           memory-size: 512
           dry-run: false
