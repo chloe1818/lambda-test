@@ -62,7 +62,7 @@ jobs:
           kms-key-arn: ''
           source-kms-key-arn: ''
           revision-id: ''
-          layers: []
+          layers: ''
           logging-config: '{"LogFormat": "JSON", "ApplicationLogLevel": "INFO", "SystemLogLevel": "INFO"}'
           snap-start: '{"ApplyOn": "PublishedVersions"}'
           tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
