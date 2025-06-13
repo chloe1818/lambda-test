@@ -53,7 +53,7 @@ jobs:
         uses: ./.github/actions/lambda-github-action
         with:
           function-name: newer-lambda
-          code-artifacts-dir: ./dist
+          code-artifacts-dir: ./test
           region: us-west-2
           memory-size: 512
           dry-run: false
