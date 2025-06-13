@@ -27,16 +27,7 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           path: .github/actions/lambda-github-action
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-          
-      - name: Install dependencies and build Lambda function
-        run: |
-          npm ci
-          npm run build
-          
+      # This step is required to prepare the custom GitHub Action
       - name: Install and build GitHub Action
         working-directory: .github/actions/lambda-github-action
         run: |
@@ -53,7 +44,7 @@ jobs:
         uses: ./.github/actions/lambda-github-action
         with:
           function-name: newer-lambda
-          code-artifacts-dir: ./test
+          code-artifacts-dir: ./
           region: us-west-2
           memory-size: 512
           dry-run: false
