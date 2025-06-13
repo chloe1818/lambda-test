@@ -55,7 +55,7 @@ jobs:
           # dead-letter-config: '{"TargetArn": "arn:aws:sns:us-west-2:660753258521:lambda-errors"}'
           # function-description: "This is to test the lambda function."
           # environment: '{"Variables":{"NODE_ENV":"production"}}'
-          ephemeral-storage: 1024
+          ephemeral-storage: 512
           file-system-configs: "[]"
           handler: "index.handler"
           image-config: ""
