@@ -64,7 +64,6 @@ jobs:
           revision-id: ""
           layers: "[]"
           logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
-          snap-start: '{"ApplyOn":"PublishedVersions"}'
           # tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
           # timeout: 5
           # tracing-config: '{"Mode":"Active"}'
@@ -74,3 +73,4 @@ jobs:
           dry-run: false
           publish: true
           runtime: nodejs20.x
+          # snap-start: '{"ApplyOn":"PublishedVersions"}'
