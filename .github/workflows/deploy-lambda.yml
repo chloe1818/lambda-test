@@ -52,7 +52,7 @@ jobs:
           role: arn:aws:iam::660753258521:role/lambda-test-execution-role
           architectures: arm64
           code-signing-config-arn: ""
-          dead-letter-config: '{"TargetArn": "arn:aws:sns:us-west-2:660753258521:lambda-errors"}'
+          dead-letter-config: ''
           # function-description: "This is to test the lambda function."
           # environment: '{"Variables":{"NODE_ENV":"production"}}'
           ephemeral-storage: 512
