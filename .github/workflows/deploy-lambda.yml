@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      
+      - name: Install dependencies and build Lambda function
+        run: |
+          npm ci
+          npm run build
         
       - name: Checkout private action
         uses: actions/checkout@v3
@@ -26,13 +31,6 @@ jobs:
           ref: main
           token: ${{ secrets.PAT_TOKEN }}
           path: .github/actions/lambda-github-action
-      
-      # This step is required to prepare the custom GitHub Action
-      - name: Install and build GitHub Action
-        working-directory: .github/actions/lambda-github-action
-        run: |
-          npm ci
-          npm run build
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -43,7 +41,7 @@ jobs:
       - name: Deploy Lambda
         uses: ./.github/actions/lambda-github-action
         with:
-          function-name: newer-lambda
+          function-name: newest-lambda
           code-artifacts-dir: ./dist
           region: us-west-2
           memory-size: 512
