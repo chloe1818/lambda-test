@@ -54,7 +54,7 @@ jobs:
           code-signing-config-arn: ""
           dead-letter-config: ''
           function-description: "This is to test the lambda function."
-          environment: '{"Variables":{"NODE_ENV":"production"}}'
+          environment: ''
           ephemeral-storage: 512
           file-system-configs: "[]"
           handler: "index.handler"
