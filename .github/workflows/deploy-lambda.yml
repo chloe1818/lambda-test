@@ -59,8 +59,8 @@ jobs:
           file-system-configs: "[]"
           handler: "index.handler"
           image-config: ""
-          # kms-key-arn: ""
-          # source-kms-key-arn: ""
+          kms-key-arn: ""
+          source-kms-key-arn: ""
           # revision-id: ""
           # layers: "[]"
           # logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
