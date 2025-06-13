@@ -66,7 +66,7 @@ jobs:
           logging-config: '{"LogFormat":"JSON","ApplicationLogLevel":"INFO","SystemLogLevel":"INFO"}'
           tags: '{"Project":"LambdaTest","Environment":"Test","Owner":"DevOps"}'
           timeout: 5
-          # tracing-config: '{"Mode":"Active"}'
+          tracing-config: '{"Mode":"Active"}'
           # vpc-config: '{"SubnetIds": ["subnet-12345678", "subnet-87654321"], "SecurityGroupIds": ["sg-12345678"]}'
           region: us-west-2
           memory-size: 512
